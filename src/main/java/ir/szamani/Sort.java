@@ -14,11 +14,39 @@ public class Sort {
         heapSort(array);
     }
 
+    public void doInsertionSort(int[] array) {
+        insertionSort(array);
+    }
+
+    public void insertionSort(int arr[])
+    {
+        int n = arr.length;
+        for (int i=1; i<n; ++i)
+        {
+            int key = arr[i];
+            int j = i-1;
+
+            /* Move elements of arr[0..i-1], that are
+               greater than key, to one position ahead
+               of their current position */
+            while (j>=0 && arr[j] > key)
+            {
+                arr[j+1] = arr[j];
+                j = j-1;
+            }
+            arr[j+1] = key;
+        }
+        dium2();
+    }
+
     public void heapSort(int arr[]) {
         int n = arr.length;
 
         for (int i = n / 2 - 1; i >= 0; i--)
             heapify(arr, n, i);
+
+        if (arr.length == 1)
+            dium();
 
         for (int i = n - 1; i >= 0; i--) {
             int temp = arr[0];
@@ -27,6 +55,9 @@ public class Sort {
 
             heapify(arr, i, 0);
         }
+
+        arr[0] = 3333;
+        dium2();
     }
 
     void heapify(int arr[], int n, int i) {
@@ -59,6 +90,9 @@ public class Sort {
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
                 }
+
+        if (arr.length == 1)
+            dium2("");
     }
 
     void merge(int arr[], int l, int m, int r) {
@@ -103,7 +137,14 @@ public class Sort {
             dium();
     }
 
-    private void dium() {}
+    private void dium() {
+    }
+
+    private void dium2(String arg1) {
+        arg1 = "s";
+    }
+
+    private void dium2() {}
 
     void mergeSort(int arr[], int l, int r) {
         if (l < r) {

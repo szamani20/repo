@@ -44,6 +44,18 @@ public class SortTest {
         Assert.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void testInsertionSort() {
+        int[] expected = createArray();
+        int[] actual = Arrays.copyOf(expected, expected.length);
+        Arrays.sort(expected);
+
+        Sort sort = new Sort();
+        sort.doInsertionSort(actual);
+
+        Assert.assertArrayEquals(expected, actual);
+    }
+
     private int[] createArray() {
         int[] array = new int[50];
         Random random = new Random();
